@@ -1,0 +1,3 @@
+/Users/yifan_li/Documents/CS/C++_Learning/Teris/build/CMakeFiles/main.dir
+/Users/yifan_li/Documents/CS/C++_Learning/Teris/build/CMakeFiles/edit_cache.dir
+/Users/yifan_li/Documents/CS/C++_Learning/Teris/build/CMakeFiles/rebuild_cache.dir
