@@ -1,15 +1,16 @@
 #include"game.h"
+#include "Settings.h"
 #include "raylib.h"
 
 Game::Game(int width, int height, std::string title)
     :
-    board(Vec2<int>(200,200), Vec2<int>(10,20), 15, 2)
+    board(settings::boardStartingPos, settings::boardSize, settings::cellLength, settings::paddingLength)
 {
     // assert(IsWindowReady());
     InitWindow(width, height, title.c_str());
-    SetTargetFPS(60);
-    for(int x = 0; x < 10; x++){
-        for(int y = 0; y <20; y++){
+    SetTargetFPS(settings::fps);
+    for(int x = 0; x < settings::boardSize.getX(); x++){
+        for(int y = 0; y <settings::boardSize.getY(); y++){
             board.SetCell(Vec2(x,y), RED);
         }
     }
