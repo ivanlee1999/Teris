@@ -15,6 +15,7 @@ public:
     void SetCell(Vec2<int> cellPos, Color c);
     void DrawCell(Vec2<int> cellPos) const;
     void DrawWholeBoard() const;
+    void DrawBorder() const;
     
 
 private:

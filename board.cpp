@@ -1,4 +1,5 @@
 #include"board.h"
+#include "Settings.h"
 #include "raylib.h"
 
 Board::Cell::Cell() : Exist(false), c(WHITE){};
@@ -34,4 +35,10 @@ void Board::DrawWholeBoard() const{
             DrawCell(Vec2(x,y));
         }
     }
+    DrawBorder();
+}
+
+void Board::DrawBorder() const{
+    DrawRectangleLinesEx({settings::boardStartingPos.getX() - settings::cellLength/2.0, settings::boardStartingPos.getY() -settings::cellLength/2., settings::boardSize.getX()*settings::boardSize.getX() + settings::cellLength, settings::boardSize.getY()*settings::cellLength + settings::cellLength}, settings::cellLength/2.0 , YELLOW);
+
 }
