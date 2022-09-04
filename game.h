@@ -1,5 +1,10 @@
+#pragma once
 #include "raylib.h"
 #include <iostream>
+#include <cassert>
+#include"board.h"
+#include"Settings.h"
+
 
 class Game{
     public:
@@ -9,4 +14,5 @@ class Game{
     private:
         void update();
         void draw();
+        Board board;
 };
