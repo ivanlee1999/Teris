@@ -4,6 +4,7 @@
 #include <cassert>
 #include"board.h"
 #include"Settings.h"
+#include"Tetrominoes.h"
 
 
 class Game{
@@ -15,4 +16,5 @@ class Game{
         void update();
         void draw();
         Board board;
+        Jay TetriJay;
 };

@@ -29,16 +29,32 @@ void Board::DrawCell(Vec2<int> cellPos) const{
     DrawRectangle(screenPos.getX() + cellPos.getX() * cellSize + padding, screenPos.getY() + cellPos.getY() * cellSize + padding, cellSize-padding, cellSize - padding, c);
 }
 
+void Board::DrawCell(Vec2<int> cellPos, Color c) const{
+    Vec2<int> cellPosInBoard = screenPos + padding ;
+    DrawRectangle(screenPos.getX() + cellPos.getX() * cellSize + padding, screenPos.getY() + cellPos.getY() * cellSize + padding, cellSize-padding, cellSize - padding, c);
+}
+
 void Board::DrawWholeBoard() const{
     for(int x = 0; x != screenSize.getX(); x++){
         for(int y = 0; y != screenSize.getY(); y++){
-            DrawCell(Vec2(x,y));
+            if(cells[y * screenSize.getX() + x].checkExists()){
+                DrawCell(Vec2(x,y));
+            }
         }
     }
     DrawBorder();
 }
 
 void Board::DrawBorder() const{
-    DrawRectangleLinesEx({settings::boardStartingPos.getX() - settings::cellLength/2.0, settings::boardStartingPos.getY() -settings::cellLength/2., settings::boardSize.getX()*settings::boardSize.getX() + settings::cellLength, settings::boardSize.getY()*settings::cellLength + settings::cellLength}, settings::cellLength/2.0 , YELLOW);
+    DrawRectangleLinesEx({float(screenPos.getX()) - float(cellSize/2.0), float(screenPos.getY()) - float(cellSize/2.0), screenSize.getX() * cellSize + float(cellSize), screenSize.getY() * cellSize + float(cellSize)}, cellSize/2.0, YELLOW);
 
 }
+
+bool Board::Cell::checkExists() const{
+    return Exist;
+}
+
+
+int Board::GetWidth() const {return screenSize.getX();};
+int Board::GetHeight() const {return screenSize.getY();};
+

@@ -14,8 +14,11 @@ public:
     // ~Board();
     void SetCell(Vec2<int> cellPos, Color c);
     void DrawCell(Vec2<int> cellPos) const;
+    void DrawCell(Vec2<int> cellPos, Color c) const;
     void DrawWholeBoard() const;
     void DrawBorder() const;
+    int GetWidth() const;
+    int GetHeight() const;
     
 
 private:
@@ -30,6 +33,7 @@ private:
         // ~Cell();
         void SetColor(Color);
         Color GetColor() const;
+        bool checkExists() const;
 
     private:
         bool Exist;
